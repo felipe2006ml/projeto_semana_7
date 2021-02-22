@@ -11,6 +11,7 @@ body {
     font-family: 'Lato';
     background: #666;
     color: #fff;
+    
 }
 
 main {
@@ -23,6 +24,7 @@ header {
     justify-content: center;
     align-items: center;
     margin: 20px;
+    flex-wrap: wrap;
 }
 
 header nav a {
@@ -107,7 +109,10 @@ form select {
     width: 300px;
     height: 30px;
     margin: 20px;
+    background: gray;
+    color: white;
 }
+
 
 /* footer */
 
