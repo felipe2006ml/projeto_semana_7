@@ -11,7 +11,7 @@ function getContinente(continente) {
     contentCards.innerHTML = ""
 
     let xhr = new XMLHttpRequest
-    let url = ('http://worldtimeapi.org/api/timezone/' + continente)
+    let url = ('https://worldtimeapi.org/api/timezone/' + continente)
 
     xhr.open('GET', url, true)
 
@@ -37,7 +37,7 @@ function getRegiao(regiao) {
 
     let xhr = new XMLHttpRequest
 
-    let url = ('http://worldtimeapi.org/api/timezone/' + regiao)
+    let url = ('https://worldtimeapi.org/api/timezone/' + regiao)
 
     xhr.open('GET', url, true)
 

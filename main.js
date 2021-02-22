@@ -3,7 +3,7 @@ const contentCards = document.getElementById('content-cards')
 function getCont() {
     let xhr = new XMLHttpRequest
 
-    let url = 'http://worldtimeapi.org/api/timezone/'
+    let url = 'https://worldtimeapi.org/api/timezone/'
 
     xhr.open('GET', url, true)
 
@@ -24,7 +24,7 @@ function getCont() {
 function getLocation(local, i) {
     let iAux = i
     let xhr = new XMLHttpRequest
-    let url = 'http://worldtimeapi.org/api/timezone/' + local
+    let url = 'https://worldtimeapi.org/api/timezone/' + local
 
     xhr.open('GET', url, true)
 

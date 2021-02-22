@@ -3,7 +3,7 @@ const liElement = document.createElement('li')
 
 function getLocation() {
     let xhr = new XMLHttpRequest
-    let url = 'http://worldtimeapi.org/api/ip'
+    let url = 'https://worldtimeapi.org/api/ip'
 
     xhr.open('GET', url, true)
 
