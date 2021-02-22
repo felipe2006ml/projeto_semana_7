@@ -1,9 +1,5 @@
 const contentCards = document.getElementById('content-cards')
 
-function gerarPosicao() {
-    return Math.floor(Math.random() * 387)
-}
-
 function getCont() {
     let xhr = new XMLHttpRequest
 
@@ -16,7 +12,9 @@ function getCont() {
             
             let contJSON = JSON.parse(xhr.responseText)
             for(i=0; i<12; i++) {
-                getLocation(contJSON[gerarPosicao()], i)
+                var al = Math.floor(Math.random() * contJSON.length)
+
+                getLocation(contJSON[al], i)
             }
         }
     }
@@ -38,8 +36,12 @@ function getLocation(local, i) {
 
         contentCards.innerHTML +=
         `<li id="card-${i}">
+            <a id="cards-${i}"></a>
         </li>`
         }
+
+        var corRandom = '#'+Math.floor(Math.random()*16777215).toString(16);
+        document.getElementById(`cards-${i}`).style.background = corRandom
     }
     xhr.send()
 }
@@ -58,18 +60,19 @@ function contHora(dadosData, localizacao,i) {
 
     let dataC = new Date(ano, mes, dia, hora, min, segundo)
     
+    
     setInterval(function(){
 
         let aux = dataC.getSeconds()
         dataC.setSeconds(aux + 1)
 
-        document.getElementById(`card-${i}`).innerHTML =
-        `<a class="cards">
+        document.getElementById(`cards-${i}`).innerHTML =
+        `
             <h3>${localizacao}</h3>
             <p>${dataC.getDate()}/${dataC.getMonth()}/${dataC.getFullYear()}</p>
             <p>${dataC.getHours()}:${dataC.getMinutes()}:${dataC.getSeconds()}</p>
             <p>${utc}</p>
-        </a>`
+        `
     }, 1000)
     
 }

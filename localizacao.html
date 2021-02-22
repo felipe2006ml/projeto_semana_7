@@ -11,35 +11,44 @@
 
     <header>
         <nav>
-            <a href="">Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="ip.html">Consulta por IP</a>
-            <a href="">Consulta por Localização</a>
+            <a href="localizacao.html">Consulta por Localização</a>
         </nav>
     </header>
     
-    <form action="#">
-        <select name="" id="" onchange="getContinente(this.value)">
-            <option value="" disabled selected>Selecione um continente</option>
-            <option value="Africa">Africa</option>
-            <option value="America">America</option>
-            <option value="Antarctica">Antarctica</option>
-            <option value="Asia">Asia</option>
-            <option value="Atlantic">Atlantic</option>
-            <option value="Australia">Australia</option>
-            <option value="Europe">Europe</option>
-            <option value="Indian">Indian</option>
-            <option value="Pacific">Pacific</option>
-        </select>
-        
-        <select name="" id="select-regiao" onchange="getRegiao(this.value)">
-            <option value="" disabled selected>Selecione uma região</option>
-        </select>
-    </form>
+    <main>
+        <form action="#">
+            <select name="" id="" onchange="getContinente(this.value)">
+                <option value="" disabled selected>Selecione um continente</option>
+                <option value="Africa">Africa</option>
+                <option value="America">America</option>
+                <option value="Antarctica">Antarctica</option>
+                <option value="Asia">Asia</option>
+                <option value="Atlantic">Atlantic</option>
+                <option value="Australia">Australia</option>
+                <option value="Europe">Europe</option>
+                <option value="Indian">Indian</option>
+                <option value="Pacific">Pacific</option>
+            </select>
+            
+            <select name="" id="select-regiao" onchange="getRegiao(this.value)">
+                <option value="" disabled selected>Selecione uma região</option>
+            </select>
+        </form>
 
-    <ul id="content-cards">
+        <ul id="content-cards">
 
-    </ul>
+        </ul>
+    </main>
     
+    <footer>
+        <nav>
+            <a href="">Sobre</a>
+            <p>Esse site não utiliza cookies</p>
+        </nav>
+    </footer>
+
     <script src="localizacao.js"></script>
 </body>
 </html>

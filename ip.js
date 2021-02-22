@@ -1,4 +1,5 @@
 const contentCards = document.getElementById('content-cards')
+const liElement = document.createElement('li')
 
 function getLocation() {
     let xhr = new XMLHttpRequest
@@ -12,9 +13,9 @@ function getLocation() {
         
         contHora(ipJSON.datetime, ipJSON.client_ip, ipJSON.timezone)
 
-        contentCards.innerHTML +=
-        `<li id="ip">
-        </li>`
+        liElement.setAttribute('id', 'ip')
+        contentCards.appendChild(liElement)
+      
         }
     }
     xhr.send()
@@ -32,19 +33,24 @@ function contHora(dadosData, ip,localizacao) {
 
     let dataC = new Date(ano, mes, dia, hora, min, segundo)
     
+    let aElement = document.createElement('a')
+    aElement.setAttribute('class', 'cards')
+
+    liElement.appendChild(aElement)
+
     setInterval(function(){
 
         let aux = dataC.getSeconds()
         dataC.setSeconds(aux + 1)
 
-        document.getElementById(`ip`).innerHTML =
-        `<a class="cards">
+        aElement.innerHTML =
+        `
             <h3>${localizacao}</h3>
             <p>${dataC.getDate()}/${dataC.getMonth()}/${dataC.getFullYear()}</p>
             <p>${dataC.getHours()}:${dataC.getMinutes()}:${dataC.getSeconds()}</p>
             <p>${utc}</p>
             <p>${ip}</p>
-        </a>`
+        `
     }, 1000)
     
 }

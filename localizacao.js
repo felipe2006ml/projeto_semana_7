@@ -1,9 +1,14 @@
 const selectRegiao = document.getElementById('select-regiao')
 const contentCards = document.getElementById('content-cards')
+const liElement = document.createElement('li')
+const aElement = document.createElement('a')
+
+var teste = 0
 
 function getContinente(continente) {
 
     selectRegiao.innerHTML = ""
+    contentCards.innerHTML = ""
 
     let xhr = new XMLHttpRequest
     let url = ('http://worldtimeapi.org/api/timezone/' + continente)
@@ -29,6 +34,7 @@ function getContinente(continente) {
 }
 
 function getRegiao(regiao) {
+
     let xhr = new XMLHttpRequest
 
     let url = ('http://worldtimeapi.org/api/timezone/' + regiao)
@@ -39,10 +45,10 @@ function getRegiao(regiao) {
         if(xhr.readyState == 4 && xhr.status == 200) {
             let regiaoJSON = JSON.parse(xhr.responseText)
 
-            let regiao = document.createElement('li')
-            regiao.setAttribute('id', 'regiao')
+            liElement.setAttribute('id', 'regiao')
+            contentCards.appendChild(liElement)
 
-            contentCards.appendChild(regiao)
+            clearInterval(teste)
 
             contHora(regiaoJSON.datetime , regiaoJSON.timezone)
 
@@ -53,7 +59,7 @@ function getRegiao(regiao) {
 }
 
 function contHora(dadosData,localizacao) {
-
+    
     let ano = dadosData.substring(0,4)
     let mes = dadosData.substring(5,7)
     let dia = dadosData.substring(8,10)
@@ -64,19 +70,24 @@ function contHora(dadosData,localizacao) {
     let utc = dadosData.substring(26,32)
 
     let dataC = new Date(ano, mes, dia, hora, min, segundo)
+
+    aElement.setAttribute('class', 'cards')
+    liElement.appendChild(aElement)
+
+    aElement.innerHTML = ""
     
-    setInterval(function(){
+    teste = setInterval(function(){
 
         let aux = dataC.getSeconds()
         dataC.setSeconds(aux + 1)
 
-        document.getElementById(`regiao`).innerHTML =
-        `<a class="cards">
+        aElement.innerHTML =
+        `
             <h3>${localizacao}</h3>
             <p>${dataC.getDate()}/${dataC.getMonth()}/${dataC.getFullYear()}</p>
             <p>${dataC.getHours()}:${dataC.getMinutes()}:${dataC.getSeconds()}</p>
             <p>${utc}</p>
-        </a>`
+        `
     }, 1000)
     
 }

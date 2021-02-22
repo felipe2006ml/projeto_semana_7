@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
 * {
     margin: 0;
@@ -10,6 +11,10 @@ body {
     font-family: 'Lato';
     background: #666;
     color: #fff;
+}
+
+main {
+    height: 100vh;
 }
 
 header {
@@ -62,8 +67,8 @@ ul li a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 15em;
-    width: 15em;
+    height: 17em;
+    width: 17em;
     padding: 1em;
     box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
     transition: transform .15s linear;
@@ -80,6 +85,7 @@ ul li a:hover, ul li a:focus {
 h3 {
     font-weight: bold;
     font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 p {
@@ -101,4 +107,27 @@ form select {
     width: 300px;
     height: 30px;
     margin: 20px;
+}
+
+/* footer */
+
+footer {
+    height: 100px;
+    background: gray;
+}
+
+footer nav a {
+    display: inline;
+    text-decoration: none;
+    color: white;
+    margin: 20px ;
+    font-size: 1.2em;
+}
+
+footer nav p {
+    display: inline;
+}
+
+footer nav a:hover {
+    text-decoration: underline;
 }
