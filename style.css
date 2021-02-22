@@ -24,7 +24,6 @@ header {
     justify-content: center;
     align-items: center;
     margin: 20px;
-    flex-wrap: wrap;
 }
 
 header nav a {
@@ -135,4 +134,18 @@ footer nav p {
 
 footer nav a:hover {
     text-decoration: underline;
+}
+
+/* menu responsivo */
+
+@media all and (max-width: 500px) {
+    nav {
+        margin-top: 100px;
+    }
+
+    nav a {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
 }
